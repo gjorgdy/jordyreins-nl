@@ -3,10 +3,14 @@
 	"lang_lowercase": "taal",
 	"quote": "teveel hobbies, te weinig tijd",
 	"gaming_at_4": "ik die 'game' als 4-jarige",
-	"a": "een",
 	"experiences": "Ervaringen",
+	"current_school": "mijn huidige school",
+	"contact_me": "Neem contact op",
+	"contact_me_subtitle": "contact informatie en social media",
 
 	"helix_subtitle": "mijn Minecraft server",
 
-	"symphonic_subtitle": "content groep website"
+	"symphonic_subtitle": "content groep website",
+
+	"helix_bot_subtitle": "een Discord bot in pure C# .NET"
 }
