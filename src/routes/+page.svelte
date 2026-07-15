@@ -42,7 +42,7 @@
         <h2 class="p-2 md:p-8 text-xl text-gray-500">// Projects</h2>
         <div id="projects" class="w-full h-full grid grid-cols-2 lg:grid-cols-4 gap-4 px-2 md:px-8">
             <IndexTile title="Helix Survival" subtitle={m.helix_subtitle()} thumbnail={helixThumbnail} href={resolve("/projects/helix-survival")} {saturated}/>
-            <IndexTile title="Symphonic SMP Website" thumbnail={symphonicThumbnail} href={resolve("/projects/symphonic-smp")} {saturated}/>
+            <IndexTile title="Symphonic SMP Website" subtitle={m.symphonic_subtitle()} thumbnail={symphonicThumbnail} href={resolve("/projects/symphonic-smp")} {saturated}/>
         </div>
     </div>
 </div>
