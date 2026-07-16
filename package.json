@@ -39,6 +39,7 @@
     "@types/bun": "latest"
   },
   "dependencies": {
+    "@humanspeak/svelte-markdown": "^1.8.4",
     "shadcdn": "^0.0.8",
     "svelte-typewrite": "^3.0.0"
   }

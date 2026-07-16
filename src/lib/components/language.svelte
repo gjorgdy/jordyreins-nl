@@ -1,5 +1,4 @@
 <script lang="ts">
-   	import { fade } from 'svelte/transition';
     import { setLocale, getLocale } from '$lib/paraglide/runtime';
     import { m } from '$lib/paraglide/messages.js';
 
@@ -10,13 +9,13 @@
     <div class="not-md:hidden flex flex-row gap-0">
         <span>{`{"`}</span>
         {#key getLocale()}
-            <span in:fade>{m.lang_sk()}</span>
+            <span>{m.lang_sk()}</span>
         {/key}
         <span>": </span>
     </div>
     <span> "</span>
     {#key getLocale()}
-        <span in:fade>{getLocale()}</span>
+        <span>{getLocale()}</span>
     {/key}
     "
     <span class="not-md:hidden">}</span>

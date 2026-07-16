@@ -8,7 +8,7 @@
   import initialsModernWhite from '$lib/assets/initials_modern_white.png';
 
   let { children } = $props();
-  let dark = true;
+  let dark = false;
 </script>
 
 <svelte:head>
@@ -16,7 +16,7 @@
     <title>Jordy Reins</title>
 </svelte:head>
 
-<div class="{dark ? 'dark' : ''}">
+<div class="{dark ? 'dark' : ''} bg-white dark:bg-black h-dvh w-dvw relative">
     {@render children()}
 </div>
 
