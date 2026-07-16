@@ -1,16 +1,13 @@
 {
-	"about_me": "About me",
-	"lang_lowercase": "language",
+	"lang_sk": "language",
+	"last_updated_sk": "last_updated",
+
 	"quote": "too many hobbies, too little time",
-	"gaming_at_4": "me 'gaming' at only 4 years old",
+
+	"personal": "Personal",
+	"software_projects": "Software Projects",
+
+	"about_me": "About me",
 	"experiences": "Experiences",
-	"current_school": "my current school",
-	"contact_me": "Contact me",
-	"contact_me_subtitle": "contact information and social media",
-
-	"helix_subtitle": "my Minecraft server",
-
-	"symphonic_subtitle": "content creators website",
-
-	"helix_bot_subtitle": "a C# w/ .NET-only Discord bot"
+	"contact_me": "Contact me"
 }
