@@ -32,14 +32,14 @@
         style:border-color={dark ? `rgb(255, 255, 255, ${border})` : `rgb(0, 0, 0, ${border})`}
         style:box-shadow={`0 2px 20px ${`rgb(0, 0, 0, ${shadow})`}`}
     >
-        <div class="w-300 max-w-[90dvw] h-12 md:h-20 px-2 grid grid-cols-1 md:grid-cols-3 items-center {data.isHomePage ? 'not-md:hidden' : ''}">
-            <LastUpdated class="dark:text-white/40 not-md:hidden flex items-center justify-start h-full"/>
+        <div class="w-300 max-w-[95dvw] h-12 md:h-20 px-2 grid grid-cols-[4fr_1fr] md:grid-cols-3 items-center {data.isHomePage ? 'not-md:absolute not-md:h-16' : ''}">
+            <LastUpdated class="font-code dark:text-white/40 not-md:hidden flex items-center justify-start h-full"/>
             {#if !data.isHomePage}
-                <a id="jordyreins" href={resolve("/")} class="text-2xl font-bold tracking-widest hover:scale-105 transition-transform flex justify-center">JORDY REINS</a>
+                <a id="jordyreins" href={resolve("/")} class="font-title text-2xl font-bold tracking-widest transition-colors bg-clip-text text-transparent bg-linear-to-r from-black/60 to-black dark:from-white dark:to-gray-400 hover:from-blue-600 hover:to-purple-500 duration-500 flex md:justify-center">JORDY REINS</a>
             {:else}
                 <div></div>
             {/if}
-            <Language class="dark:text-white/40 not-md:hidden flex items-center justify-end h-full"/>
+            <Language class="font-code dark:text-white/40 flex items-center justify-end h-full"/>
         </div>
     </div>
     <div class="grow w-300 max-w-[95dvw]">

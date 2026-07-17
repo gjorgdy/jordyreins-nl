@@ -1,10 +1,11 @@
 {
-	"lang_sk": "language",
+	"lang_sk": "lang",
 	"last_updated_sk": "last_updated",
 	"go_back": "Go back to the homepage",
 	"lang_en": "English",
 	"lang_nl": "Dutch",
 	"only_in": "This page is only available in",
+	"copy_toast": "Copied website link",
 
 	"quote": "too many hobbies, too little time",
 
