@@ -1,15 +1,12 @@
 <script lang="ts">
-    import { getLocale, localizeHref, localizeUrl, setLocale } from '$lib/paraglide/runtime';
+    import { getLocale, setLocale } from '$lib/paraglide/runtime';
     import { m } from '$lib/paraglide/messages.js';
-	import { goto, invalidate } from '$app/navigation';
-	import { page } from '$app/state';
 
     const { class: className }: { class?: string } = $props();
 
     const toggleLocale = async () => {
       const target =  getLocale() === "en" ? "nl" : "en";
       await setLocale(target, { reload: false });
-      // await invalidate('paraglide:locale');
     };
 </script>
 
