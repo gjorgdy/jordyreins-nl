@@ -11,9 +11,7 @@
   import helixBotThumbnail from '$lib/assets/projects/helix-bot/thumbnail.png';
   import contactThumbnail from '$lib/assets/index/contact.jpg';
   // components
-  import Language from '$lib/components/language.svelte';
   import CategoryTitle from '$lib/components/index/categoryTitle.svelte';
-  import LastUpdated from '$lib/components/last_updated.svelte';
   import Tile from '$lib/components/index/tile.svelte';
 
   const hobbies = [
@@ -52,8 +50,8 @@
     <div>
         <CategoryTitle text={m.software_projects()}/>
         <div id="projects" class="w-full h-full grid grid-cols-2 lg:grid-cols-4 gap-4">
-            <Tile title="Helix (Discord) Bot" thumbnail={helixBotThumbnail} href={resolve("/projects/helix-bot")} {saturated}/>
             <Tile title="Helix Survival Minecraft Server" thumbnail={helixThumbnail} href={resolve("/projects/helix-survival")} {saturated}/>
+            <Tile title="Helix (Discord) Bot" thumbnail={helixBotThumbnail} href={resolve("/projects/helix-bot")} {saturated}/>
             <Tile title="Symphonic SMP Creators Website" thumbnail={symphonicThumbnail} href={resolve("/projects/symphonic-smp")} {saturated}/>
         </div>
     </div>

@@ -10,10 +10,8 @@
   import Language from '$lib/components/language.svelte';
   import LastUpdated from '$lib/components/last_updated.svelte';
 
-  let { children } = $props();
+  let { children, data } = $props();
   let dark = true;
-
-  const hideName = $derived(page.route.id === resolve("/"));
 </script>
 
 <svelte:head>
@@ -23,12 +21,12 @@
 
 <div id="bg" class="{dark ? 'dark' : ''} bg-white dark:bg-black dark:text-white min-h-dvh min-w-dvw relative flex flex-col items-center">
     <div class="sticky top-0 bg-white dark:bg-black w-full flex justify-center">
-        <div class="w-300 max-w-[90dvw] h-12 md:h-20 px-2 grid grid-cols-1 md:grid-cols-3 items-center {hideName ? 'not-md:hidden' : ''}">
+        <div class="w-300 max-w-[90dvw] h-12 md:h-20 px-2 grid grid-cols-1 md:grid-cols-3 items-center {data.isHomePage ? '' : 'not-md:hidden'}">
             <LastUpdated class="dark:text-white/40 not-md:hidden flex items-center justify-start h-full"/>
-            {#if hideName}
-                <div></div>
-            {:else}
+            {#if !data.isHomePage}
                 <a id="jordyreins" href={resolve("/")} class="text-2xl font-bold tracking-widest hover:scale-105 transition-transform flex justify-center">JORDY REINS</a>
+            {:else}
+                <div></div>
             {/if}
             <Language class="dark:text-white/40 not-md:hidden flex items-center justify-end h-full"/>
         </div>
