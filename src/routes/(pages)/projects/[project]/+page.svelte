@@ -12,10 +12,16 @@
       locale: string;
     }
 
+    async function getImage(path: string|undefined): Promise<string | undefined> {
+        const paths = import.meta.glob('$lib/assets/projects/*/*', { eager: true, query: '?url', import: 'default' });
+        console.log(paths);
+        console.log(`${params.project}/${path}`);
+        return Object.entries(paths).find((e): boolean => e[0].includes(`${params.project}/${path}`))?.[1];
+    }
+
     const projectPromise: Promise<Project|undefined> = $derived.by(async () => {
         // banner
-        const paths = import.meta.glob('$lib/assets/projects/*/*', { eager: true, query: '?url', import: 'default' });
-        const banner = Object.entries(paths).find((e): boolean => e[0].includes(`${params.project}/banner`))?.[1];
+        const banner = await getImage("banner")
         // content
         const files = import.meta.glob('$lib/assets/projects/*/*', { query: '?raw', import: 'default' });
         // try to get the content
@@ -38,13 +44,15 @@
     }
 </script>
 
-<div class="flex flex-col items-center gap-2 md:gap-6 pb-6">
+<div class="h-full flex flex-col items-center gap-2 md:gap-6 pb-6">
 {#key getLocale()}
     {#await projectPromise}
-        <p>Loading...</p>
-    {:then project}
+        <div class="w-full h-full flex justify-center items-center">
+            <p class="font-bold">Loading...</p>
+        </div>
+    {:then project} {#if project}
         {#if project.banner}
-            <img src={project.banner} alt="Banner" class="max-w-dvw w-300 max-h-50 object-cover" />
+            <img src={project.banner} alt="Banner" class="rounded-xs max-w-dvw w-300 max-h-50 object-cover" />
         {/if}
         <article class="prose dark:prose-invert w-170 max-w-[90dvw]">
             {#if project.locale !== getLocale()}
@@ -55,13 +63,21 @@
             {#if project.content}
                 <SvelteMarkdown source={project.content}>
                     {#snippet blockquote({ children })}
-                        <span class="border-l-2 rounded-r-xs border-black/40 bg-black/5 dark:border-white/40 dark:bg-white/5 pl-2 flex flex-col gap-2 [&>p]:m-0 -mt-4">
+                        <span class="border-l-2 rounded-r-xs border-black/40 bg-black/5 dark:border-white/40 dark:bg-white/5 px-2 flex flex-col gap-2 [&>p]:m-0 -mt-4">
                             {@render children?.()}
                         </span>
+                    {/snippet}
+
+                    {#snippet image({ href, title })}
+                        {#await getImage(href)}
+                            <div class="bg-black/10 dark:bg-white/10 max-w-dvw w-300 max-h-50 object-cover">{title}</div>
+                        {:then image}
+                            <img src={image} alt={title} class="rounded-xs not-prose my-2 max-w-full w-full h-50 object-cover" />
+                        {/await}
                     {/snippet}
                 </SvelteMarkdown>
             {/if}
         </article>
-    {/await}
+    {/if} {/await}
 {/key}
 </div>
