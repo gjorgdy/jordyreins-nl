@@ -11,8 +11,15 @@
   import LastUpdated from '$lib/components/last_updated.svelte';
 
   let { children, data } = $props();
+
+  let scrollY = $state(0);
+  let border = $derived(Math.min(scrollY / 250, 0.2));
+  let shadow = $derived(Math.min(scrollY / 250, 0.25));
+
   let dark = true;
 </script>
+
+<svelte:window bind:scrollY />
 
 <svelte:head>
     <link rel="icon" href={dark ? initialsModernWhite : initialsModern} />
@@ -20,8 +27,12 @@
 </svelte:head>
 
 <div id="bg" class="{dark ? 'dark' : ''} bg-white dark:bg-black dark:text-white min-h-dvh min-w-dvw relative flex flex-col items-center">
-    <div class="sticky top-0 bg-white dark:bg-black w-full flex justify-center">
-        <div class="w-300 max-w-[90dvw] h-12 md:h-20 px-2 grid grid-cols-1 md:grid-cols-3 items-center {data.isHomePage ? '' : 'not-md:hidden'}">
+    <div
+        class="{data.isHomePage ? '' : 'sticky'} top-0 bg-white dark:bg-black w-full flex justify-center border-b"
+        style:border-color={dark ? `rgb(255, 255, 255, ${border})` : `rgb(0, 0, 0, ${border})`}
+        style:box-shadow={`0 2px 20px ${`rgb(0, 0, 0, ${shadow})`}`}
+    >
+        <div class="w-300 max-w-[90dvw] h-12 md:h-20 px-2 grid grid-cols-1 md:grid-cols-3 items-center {data.isHomePage ? 'not-md:hidden' : ''}">
             <LastUpdated class="dark:text-white/40 not-md:hidden flex items-center justify-start h-full"/>
             {#if !data.isHomePage}
                 <a id="jordyreins" href={resolve("/")} class="text-2xl font-bold tracking-widest hover:scale-105 transition-transform flex justify-center">JORDY REINS</a>
@@ -31,7 +42,7 @@
             <Language class="dark:text-white/40 not-md:hidden flex items-center justify-end h-full"/>
         </div>
     </div>
-    <div class="w-300 max-w-[95dvw]">
+    <div class="grow w-300 max-w-[95dvw]">
         {@render children()}
     </div>
 </div>

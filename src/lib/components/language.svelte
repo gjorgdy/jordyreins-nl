@@ -1,11 +1,19 @@
 <script lang="ts">
-    import { setLocale, getLocale } from '$lib/paraglide/runtime';
+    import { getLocale, localizeHref, localizeUrl, setLocale } from '$lib/paraglide/runtime';
     import { m } from '$lib/paraglide/messages.js';
+	import { goto, invalidate } from '$app/navigation';
+	import { page } from '$app/state';
 
     const { class: className }: { class?: string } = $props();
+
+    const toggleLocale = async () => {
+      const target =  getLocale() === "en" ? "nl" : "en";
+      await setLocale(target, { reload: false });
+      // await invalidate('paraglide:locale');
+    };
 </script>
 
-<button onclick={() => setLocale(getLocale() === "en" ? "nl" : "en")} class="cursor-pointer dark:text-white/40 hover:text-gray-600 dark:hover:text-white/30 transition-colors flex flex-row {className}">
+<button onclick={toggleLocale} class="cursor-pointer dark:text-white/40 hover:text-gray-600 dark:hover:text-white/30 transition-colors flex flex-row {className}">
     <div class="not-md:hidden flex flex-row gap-0">
         <span>{`{"`}</span>
         {#key getLocale()}

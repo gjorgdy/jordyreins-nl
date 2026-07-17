@@ -4,9 +4,9 @@
   const { class: className, imgClass, title, thumbnail, href, saturated }: { class?: string; imgClass?: string; title: string; thumbnail: string; href: ResolvedPathname; saturated?: boolean } = $props();
 </script>
 
-<a href={href} class="w-full h-full group flex flex-col gap-2 {className}">
-    <img src={thumbnail} alt={title} class="rounded-xs w-full h-full object-cover {saturated ? 'group-focus:saturate-30 group-hover:saturate-30' : 'saturate-0 group-focus:saturate-100 group-hover:saturate-100'} transition-all min-h-25 max-h-25 md:max-h-60 {imgClass}"/>
-    <span class="flex flex-row justify-between items-end">
-        <span class="underline group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors not-md:text-sm">{title}</span>
+<a href={href} class="before:transition-colors dark:hover:before:bg-white/10 hover:before:bg-black/10 relative before:absolute hover:before:border before:-inset-1 before:rounded-sm dark:before:border-white/10 before:border-black/10 w-full h-full group flex flex-col gap-1.25 {className}">
+    <img src={thumbnail} alt={title} class="z-10 rounded-xs w-full h-full object-cover transition-transform {saturated ? '' : 'saturate-0'} transition-all min-h-25 max-h-25 md:max-h-60 {imgClass}"/>
+    <span class="z-10 flex flex-row justify-between items-end">
+        <span class="not-md:text-sm">{title}</span>
     </span>
 </a>
