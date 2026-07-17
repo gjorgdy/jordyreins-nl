@@ -12,17 +12,24 @@
       locale: string;
     }
 
-    const projectPromise: Promise<Project> = $derived.by(async () => {
+    const projectPromise: Promise<Project|undefined> = $derived.by(async () => {
         // banner
         const paths = import.meta.glob('$lib/assets/projects/*/*', { eager: true, query: '?url', import: 'default' });
         const banner = Object.entries(paths).find((e): boolean => e[0].includes(`${params.project}/banner`))?.[1];
         // content
         const files = import.meta.glob('$lib/assets/projects/*/*', { query: '?raw', import: 'default' });
-        const file = files[contentUrl(params.project, getLocale())];
-        if (file) {
-            return { banner, content: await file?.(), locale: getLocale() } as Project;
-        } else {
-            return { banner, content: await files[contentUrl(params.project, 'en')]?.(), locale: 'en' } as Project;
+        // try to get the content
+        const localeFile = files[contentUrl(params.project, getLocale())];
+        if (localeFile) {
+            return { banner, content: await localeFile?.(), locale: getLocale() } as Project;
+        }
+        const englishFile = files[contentUrl(params.project, 'en')];
+        if (englishFile) {
+            return { banner, content: await englishFile?.(), locale: 'en' } as Project;
+        }
+        const dutchFile = files[contentUrl(params.project, 'nl')];
+        if (dutchFile) {
+            return { banner, content: await dutchFile?.(), locale: 'nl' } as Project;
         }
     })
 
@@ -33,7 +40,9 @@
 
 <div class="flex flex-col items-center gap-2 md:gap-6 pb-6">
 {#key getLocale()}
-    {#await projectPromise then project}
+    {#await projectPromise}
+        <p>Loading...</p>
+    {:then project}
         {#if project.banner}
             <img src={project.banner} alt="Banner" class="max-w-dvw w-300 max-h-50 object-cover" />
         {/if}

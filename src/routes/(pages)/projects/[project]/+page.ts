@@ -1,14 +1,17 @@
+import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 import { getLocale } from '$lib/paraglide/runtime';
 
 export const load: PageLoad = ({ params }) => {
-  const files = import.meta.glob('/src/lib/pages/projects/*.md', { query: '?raw', import: 'default' });
-  const path = `/src/lib/pages/projects/${params.project}_${getLocale()}.md`;
-  const contentPromise = files[path]?.() as Promise<string> | undefined;
+  const paths = import.meta.glob('$lib/assets/projects/*/*', { eager: true, query: '?url', import: 'default' });
+  const exists = Object.entries(paths).some((e): boolean => e[0].includes(`${params.project}/content`));
+
+  if (!exists) {
+    return error(404, { message: 'Project not found' });
+  }
 
   return {
     title: params.project,
-    content: contentPromise,
     locale: getLocale(),
   };
 };
