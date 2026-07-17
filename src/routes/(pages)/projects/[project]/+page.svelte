@@ -1,5 +1,4 @@
 <script lang="ts">
-    import { error } from '@sveltejs/kit';
     import { m } from '$lib/paraglide/messages.js';
     import SvelteMarkdown from '@humanspeak/svelte-markdown'
     import { getLocale } from '$lib/paraglide/runtime';
@@ -8,30 +7,36 @@
     let { params }: PageProps = $props();
 
     type Project = {
-      banner: string;
+      banner: string | undefined;
       content: string;
       locale: string;
     }
 
-    const content = $derived.by(async () => {
-        return await getContent(params.project, getLocale());
+    const projectPromise: Promise<Project> = $derived.by(async () => {
+        // banner
+        const paths = import.meta.glob('$lib/assets/projects/*/*', { eager: true, query: '?url', import: 'default' });
+        const banner = Object.entries(paths).find((e): boolean => e[0].includes(`${params.project}/banner`))?.[1];
+        // content
+        const files = import.meta.glob('$lib/assets/projects/*/*', { query: '?raw', import: 'default' });
+        const file = files[contentUrl(params.project, getLocale())];
+        if (file) {
+            return { banner, content: await file?.(), locale: getLocale() } as Project;
+        } else {
+            return { banner, content: await files[contentUrl(params.project, 'en')]?.(), locale: 'en' } as Project;
+        }
     })
 
-    async function getContent(project: string, locale: string): Promise<Project> {
-      const files = import.meta.glob('$lib/pages/projects/*.md', { query: '?raw', import: 'default' });
-      const file = files[`/src/lib/pages/projects/${project}_${locale}.md`];
-      if (file) {
-        return { banner: `/src/lib/assets/projects/${project}/banner.png`, content: await file?.(), locale: 'en' };
-      } else {
-        return { banner: `/src/lib/assets/projects/${project}/banner.png`, content: await files[`/src/lib/pages/projects/${project}_en.md`]?.(), locale: 'en' }
-      }
+    function contentUrl(project: string, locale: string) {
+        return `/src/lib/assets/projects/${project}/content_${locale}.md`;
     }
 </script>
 
 <div class="flex flex-col items-center gap-2 md:gap-6 pb-6">
 {#key getLocale()}
-    {#await content then project}
-        <img src={project.banner} alt="Banner" class="max-w-dvw w-300 max-h-50 object-cover" />
+    {#await projectPromise then project}
+        {#if project.banner}
+            <img src={project.banner} alt="Banner" class="max-w-dvw w-300 max-h-50 object-cover" />
+        {/if}
         <article class="prose dark:prose-invert w-170 max-w-[90dvw]">
             {#if project.locale !== getLocale()}
                 <p class="bg-red-600/40 border-2 border-red-600/80 rounded w-fit px-2 -mb-6">
@@ -39,9 +44,13 @@
                 </p>
             {/if}
             {#if project.content}
-                <SvelteMarkdown source={project.content} />
-            {:else}
-                {error(404, {message: 'Project not found'})}
+                <SvelteMarkdown source={project.content}>
+                    {#snippet blockquote({ children })}
+                        <span class="border-l-2 rounded-r-xs border-black/40 bg-black/5 dark:border-white/40 dark:bg-white/5 pl-2 flex flex-col gap-2 [&>p]:m-0 -mt-4">
+                            {@render children?.()}
+                        </span>
+                    {/snippet}
+                </SvelteMarkdown>
             {/if}
         </article>
     {/await}
