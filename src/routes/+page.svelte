@@ -24,46 +24,37 @@
     'gamer'
   ];
 
-  let saturated = false;
+  let saturated = true;
 </script>
 
-<div id="bg" class="min-h-dvh bg-white text-gray-900 dark:bg-black dark:text-white flex flex-col items-center">
-    <div class="w-full max-w-400 h-full relative">
-        <!-- Data Header -->
-        <div class="w-full p-6 pb-0 flex flex-row justify-between not-md:hidden dark:text-white/40">
-            <LastUpdated/>
-            <Language/>
+<!-- Title Header -->
+<div id="title" class="flex flex-col md:gap-4 items-center py-3 md:py-12">
+    <h1 id="jordyreins" class="text-4xl md:text-8xl font-bold tracking-widest">JORDY REINS</h1>
+    <span class="italic tracking-widest font-thin md:text-xl text-black/70 dark:text-white/40 overflow-hidden max-h-lh flex flex-row gap-0">
+        {m.quote()}
+        <span class="not-md:hidden">
+            ; <TypeWriter texts={hobbies} afterTyped={{wait: 5000}} deleteSpeed={80} typeSpeed={80} />
+        </span>
+    </span>
+</div>
+<!-- Body -->
+<div class="flex flex-col gap-4 md:gap-8 pb-4">
+    <!-- Personal -->
+    <div>
+        <CategoryTitle text={m.personal()}/>
+        <div id="me" class="w-full h-full grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <Tile class="col-span-2" title={m.about_me()} thumbnail={aboutMeThumbnail} href={resolve("/about")} {saturated}/>
+            <Tile imgClass="object-left" title={m.experiences()} thumbnail={experiencesThumbnail} href={resolve("/experiences")} {saturated}/>
+            <Tile title={m.contact_me()} thumbnail={contactThumbnail} href={resolve("/contact")} {saturated}/>
         </div>
-        <!-- Title Header -->
-        <div id="title" class="flex flex-col md:gap-4 items-center p-3 md:py-12">
-            <h1 class="text-4xl md:text-8xl font-bold tracking-widest">JORDY REINS</h1>
-            <span class="italic tracking-widest font-thin md:text-xl text-black/70 dark:text-white/40 overflow-hidden max-h-lh flex flex-row gap-0">
-                {m.quote()}
-                <span class="not-md:hidden">
-                    ; <TypeWriter texts={hobbies} afterTyped={{wait: 5000}} deleteSpeed={80} typeSpeed={80} />
-                </span>
-            </span>
-        </div>
-        <!-- Body -->
-        <div class="flex flex-col gap-4 md:gap-8 pb-4 px-2 md:px-8">
-            <!-- Personal -->
-            <div>
-                <CategoryTitle text={m.personal()}/>
-                <div id="me" class="w-full h-full grid grid-cols-2 lg:grid-cols-4 gap-4">
-                    <Tile class="col-span-2" title={m.about_me()} thumbnail={aboutMeThumbnail} href={resolve("/about")} {saturated}/>
-                    <Tile imgClass="object-left" title={m.experiences()} thumbnail={experiencesThumbnail} href={resolve("/experiences")} {saturated}/>
-                    <Tile title={m.contact_me()} thumbnail={contactThumbnail} href={resolve("/contact")} {saturated}/>
-                </div>
-            </div>
-            <!-- Software Projects -->
-            <div>
-                <CategoryTitle text={m.software_projects()}/>
-                <div id="projects" class="w-full h-full grid grid-cols-2 lg:grid-cols-4 gap-4">
-                    <Tile title="Helix (Discord) Bot" thumbnail={helixBotThumbnail} href={resolve("/projects/helix-bot")} {saturated}/>
-                    <Tile title="Helix Survival Minecraft Server" thumbnail={helixThumbnail} href={resolve("/projects/helix-survival")} {saturated}/>
-                    <Tile title="Symphonic SMP Creators Website" thumbnail={symphonicThumbnail} href={resolve("/projects/symphonic-smp")} {saturated}/>
-                </div>
-            </div>
+    </div>
+    <!-- Software Projects -->
+    <div>
+        <CategoryTitle text={m.software_projects()}/>
+        <div id="projects" class="w-full h-full grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <Tile title="Helix (Discord) Bot" thumbnail={helixBotThumbnail} href={resolve("/projects/helix-bot")} {saturated}/>
+            <Tile title="Helix Survival Minecraft Server" thumbnail={helixThumbnail} href={resolve("/projects/helix-survival")} {saturated}/>
+            <Tile title="Symphonic SMP Creators Website" thumbnail={symphonicThumbnail} href={resolve("/projects/symphonic-smp")} {saturated}/>
         </div>
     </div>
 </div>

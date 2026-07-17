@@ -31,7 +31,7 @@
 <div class="flex flex-col items-center gap-2 md:gap-6 pb-6">
 {#key getLocale()}
     {#await content then project}
-        <img src={project.banner} alt="Banner" class="max-w-dvw w-400 max-h-50 object-cover" />
+        <img src={project.banner} alt="Banner" class="max-w-dvw w-300 max-h-50 object-cover" />
         <article class="prose dark:prose-invert w-170 max-w-[90dvw]">
             {#if project.locale !== getLocale()}
                 <p class="bg-red-600/40 border-2 border-red-600/80 rounded w-fit px-2 -mb-6">
