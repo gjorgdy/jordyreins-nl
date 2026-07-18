@@ -9,6 +9,7 @@
   // components
   import Language from '$lib/components/language.svelte';
   import LastUpdated from '$lib/components/last_updated.svelte';
+  import Title from '$lib/components/title.svelte';
 
   let { children, data } = $props();
 
@@ -35,7 +36,9 @@
         <div class="w-300 max-w-[95dvw] h-12 md:h-20 px-2 grid grid-cols-[4fr_1fr] md:grid-cols-3 items-center {data.isHomePage ? 'not-md:absolute not-md:h-16' : ''}">
             <LastUpdated class="font-code dark:text-white/40 not-md:hidden flex items-center justify-start h-full"/>
             {#if !data.isHomePage}
-                <a id="jordyreins" href={resolve("/")} class="font-title text-2xl font-bold tracking-widest transition-colors bg-clip-text text-transparent bg-linear-to-r from-black/60 to-black dark:from-white dark:to-gray-400 hover:from-blue-600 hover:to-purple-500 duration-500 flex md:justify-center">JORDY REINS</a>
+                <span class="flex md:justify-center">
+                    <a href={resolve("/")} ><Title class="text-2xl"/></a>
+                </span>
             {:else}
                 <div></div>
             {/if}

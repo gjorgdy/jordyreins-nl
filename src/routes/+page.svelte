@@ -15,6 +15,7 @@
     // components
     import CategoryTitle from '$lib/components/index/categoryTitle.svelte';
     import Tile from '$lib/components/index/tile.svelte';
+    import Title from '$lib/components/title.svelte';
     import { page } from '$app/state';
 
     const hobbies = [
@@ -49,8 +50,8 @@
 
 <!-- Title Header -->
 <div id="title" class="flex flex-col md:gap-4 md:items-center py-3 md:py-12">
-    <button use:copy={{ text: page.url.href, onCopy: (copy) => showCopiedToast(copy.event as MouseEvent) }} class="flex justify-start">
-        <h1 id="jordyreins" class="cursor-copy font-title text-4xl md:text-8xl tracking-widest bg-clip-text text-transparent bg-linear-to-r from-black/60 to-black dark:from-white dark:to-gray-400  hover:from-blue-600  hover:to-purple-500 transition-colors duration-500">JORDY REINS</h1>
+    <button use:copy={{ text: page.url.href, onCopy: (copy) => showCopiedToast(copy.event as MouseEvent) }} class="cursor-copy flex justify-start">
+        <Title class="text-4xl md:text-8xl"/>
     </button>
     <span class="font-subtitle italic tracking-widest font-thin text-sm md:text-xl text-black/70 dark:text-white/40 overflow-hidden max-h-lh flex flex-row gap-0">
         {m.quote()}
