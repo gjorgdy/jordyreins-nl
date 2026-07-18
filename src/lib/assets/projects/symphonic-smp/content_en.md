@@ -12,7 +12,7 @@ A short time after this, I had some free time from school, I wanted to experimen
 The primary use case of the website is to be a place to easily find all content created by the server members on both Twitch and YouTube. 
 By default, the website only shows content related to the server itself, but using the filters, users can also view unrelated content created by the members.
 
-![[Content Panel]](content.png)
+![[Content Panel|top|medium]](content.png)
 
 ### Inspiration
 The general layout and functionality of the website were heavily inspired by the [HermitCraft website](https://hermitcraft.com/), which is another Minecraft content creator server.
