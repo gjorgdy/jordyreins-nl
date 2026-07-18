@@ -1,6 +1,6 @@
 <script lang="ts">
     // libraries
-    import { fade, scale } from 'svelte/transition';
+    import { scale } from 'svelte/transition';
     import { copy } from 'svelte-copy';
     import { m } from '$lib/paraglide/messages.js';
     import { TypeWriter } from 'svelte-typewrite'

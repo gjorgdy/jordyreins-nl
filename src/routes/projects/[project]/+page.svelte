@@ -32,9 +32,11 @@
 </svelte:head>
 
 <div class="h-full flex flex-col items-center gap-2 md:gap-6 pb-12">
-    {#await getImage("banner") then banner}
+    {#await getImage("banner")}
+        <div class="md:rounded-xs max-w-dvw w-300 max-h-50 bg-white/10"></div>
+    {:then banner} {#if banner}
         <img src={banner} alt="Banner" class="md:rounded-xs max-w-dvw w-300 max-h-50 object-cover" />
-    {/await}
+    {/if} {/await}
     {#if content}
         <Markdown
             source={content.text}
