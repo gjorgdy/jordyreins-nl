@@ -10,7 +10,7 @@
     import githubDark from 'shiki/themes/github-dark.mjs'
     import Image from '$lib/components/image.svelte';
 
-    setShikiHighlighter(
+    const highlighter = setShikiHighlighter(
         createShikiHighlighter({ langs: [ts, csharp], themes: [githubDark] })
     )
 
@@ -34,7 +34,7 @@
 
 </script>
 
-<article class="prose dark:prose-invert w-170 max-w-[90dvw] {className}">
+<article class="prose dark:prose-invert {className}">
     {#if error}
         <p class="bg-red-600/40 border-2 border-red-600/80 text-white rounded w-fit px-2 -mb-6">
             {error}

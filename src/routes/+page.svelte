@@ -67,7 +67,7 @@
         <CategoryTitle text={m.personal()}/>
         <div id="me" class="w-full h-full grid grid-cols-2 lg:grid-cols-4 gap-4">
             <Tile class="col-span-2" title={m.about_me()} thumbnail={aboutMeThumbnail} href={resolve("/about")}/>
-            <Tile imgClass="object-left" title={m.experiences()} thumbnail={experiencesThumbnail} href={resolve("/experiences")}/>
+            <Tile imgClass="object-left" title={m.experience_and_skills()} thumbnail={experiencesThumbnail} href={resolve("/experience-and-skills")}/>
             <Tile title={m.contact_me()} thumbnail={contactThumbnail} href={resolve("/contact")}/>
         </div>
     </div>

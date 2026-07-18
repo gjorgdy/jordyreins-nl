@@ -18,7 +18,7 @@
     }
 </script>
 
-<span class="not-prose grid {wClass}">
+<span class="not-prose grid {wClass ?? className}">
     {#await loadImage()}
         <span out:fade={{duration: 500, easing: cubicOut}} class="{className} bg-black/5 dark:bg-white/5 col-start-1 row-start-1 animate-pulse"></span>
     {:then src} {#if src}

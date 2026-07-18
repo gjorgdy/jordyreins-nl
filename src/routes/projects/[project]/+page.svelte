@@ -25,6 +25,7 @@
     <Image wClass="md:rounded-xs" class="md:rounded-xs max-w-dvw w-300 h-30 md:h-50" src={getImage("banner")} loading="eager"/>
     {#if content}
         <Markdown
+            class="w-170 max-w-[90dvw]"
             source={content.text}
             error={!content.isCurrentLocale ? m.only_in() + " " + (getLocale() === 'en' ? m.lang_nl() : m.lang_en()) : undefined}
             imageProvider={getImage}
