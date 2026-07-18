@@ -1,7 +1,8 @@
 <script lang="ts">
     import SvelteMarkdown from '@humanspeak/svelte-markdown'
+    import Image from '$lib/components/image.svelte';
 
-    const { source, error, imageProvider, class: className }: { source: string; error?: string|undefined; imageProvider?: ((path: string|undefined) => Promise<string|undefined>)|undefined; class?: string|undefined } = $props();
+    const { source, error, imageProvider, class: className }: { source: string; error?: string|undefined; imageProvider?: ((path: string|undefined) => string|undefined)|undefined; class?: string|undefined } = $props();
 </script>
 
 <article class="prose dark:prose-invert w-170 max-w-[90dvw] {className}">
@@ -19,13 +20,9 @@
 
         {#snippet image({ href, title })}
             {#if imageProvider && !href?.includes("http")}
-                {#await imageProvider(href)}
-                    <div class="bg-black/10 dark:bg-white/10 max-w-dvw w-300 max-h-50">{title}</div>
-                {:then image}
-                    <img src={image} alt={title} class="rounded-xs not-prose my-2 max-w-full w-full min-h-20 max-h-50 object-cover object-top" />
-                {/await}
+                <Image wClass="rounded-xs" class="rounded-xs not-prose max-w-full w-full h-50 object-cover object-top" src={imageProvider(href)}/>
             {:else}
-                <img src={href} alt={title} class="rounded-xs not-prose my-2 max-w-full w-full min-h-20 max-h-50 object-cover object-top" />
+                <img loading="lazy" src={href} alt={title} class="rounded-xs not-prose max-w-full w-full h-50 object-cover object-top" />
             {/if}
         {/snippet}
     </SvelteMarkdown>

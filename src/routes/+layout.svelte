@@ -16,7 +16,7 @@
   let border = $derived(Math.min(scrollY / 250, 0.2));
   let shadow = $derived(Math.min(scrollY / 250, 0.25));
 
-  let dark = true;
+  let dark = false;
 </script>
 
 <svelte:window bind:scrollY />
