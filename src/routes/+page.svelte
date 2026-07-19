@@ -6,6 +6,8 @@
     import { TypeWriter } from 'svelte-typewrite'
     import { resolve } from '$app/paths';
     // assets
+    import initials_m from '$lib/assets/initials_modern.png';
+    import initials_mw from '$lib/assets/initials_modern_white.png';
     import aboutMeThumbnail from '$lib/assets/index/jordy_2007.jpg';
     import experiencesThumbnail from '$lib/assets/index/experiences.jpg';
     import helixThumbnail from '$lib/assets/projects/helix-survival/thumbnail.png';
@@ -72,7 +74,9 @@
         style:transform={`translateY(${Math.pow(scrollY, power) + (Math.max(0, scrollY / titleWrapperHeight) * $headerHeight)}px)`}
         style:opacity={`${scrollY == 0 ? 1 : $showHeaderTitle ? 0 : Math.min(1.5 - scrollY / titleWrapperHeight, 1)}`}
     >
-        <div bind:clientHeight={titleHeight} class="flex flex-col items-center justify-center">
+        <div bind:clientHeight={titleHeight} class="flex flex-col items-center justify-center relative">
+            <img src={initials_mw} alt="" class="not-dark:hidden absolute opacity-5 -z-10 scale-50">
+            <img src={initials_m} alt="" class="dark:hidden absolute opacity-5 -z-10 scale-50">
             <button use:copy={{ text: page.url.href, onCopy: (copy) =>  showCopiedToast(copy.event as MouseEvent) }} class="cursor-copy flex justify-start">
                 <Title class="text-4xl md:text-8xl"/>
             </button>
