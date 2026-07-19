@@ -110,7 +110,7 @@
         </div>
     </div>
     <!-- Tools -->
-    <div>
+    <!-- <div>
         <CategoryTitle text="Tools"/>
         <div id="projects" class="w-full h-full grid grid-cols-2 lg:grid-cols-4 gap-4">
             <Tile title="Tool A" thumbnail="" href={resolve("/projects/tool-a")}/>
@@ -118,5 +118,5 @@
             <Tile title="Tool C" thumbnail="" href={resolve("/projects/tool-c")}/>
             <Tile title="Tool D" thumbnail="" href={resolve("/projects/tool-d")}/>
         </div>
-    </div>
+    </div> -->
 </div>
