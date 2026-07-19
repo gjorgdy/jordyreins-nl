@@ -58,6 +58,10 @@
 
 <svelte:window bind:scrollY/>
 
+<svelte:head>
+    <title>Jordy Reins</title>
+</svelte:head>
+
 {#if toast}
     <div transition:scale={{duration: 500}} class="z-50 pointer-events-none translate-[-50%] fixed shadow-sm shadow-black/50 bg-linear-to-r from-blue-600  to-purple-500 text-white p-1 rounded-sm" style:left={`${x}px`} style:top={`${y}px`}>
         {m.copy_toast()}

@@ -6,8 +6,10 @@
     // images
     import Windesheim from '$lib/assets/experience/windesheim.jpg';
     import Homelab from '$lib/assets/experience/homelab.png';
+    import Modding from '$lib/assets/experience/modding.webp';
 
     const { data } = $props();
+    const { study, homelab, modding } = $derived(data);
 </script>
 
 <svelte:head>
@@ -16,13 +18,18 @@
 
 <div class="flex flex-col gap-8">
     <!-- Study -->
-    <div class="grid grid-rows-[auto] md:grid-cols-2 gap-8 h-full items-center">
-        <Markdown source={data.study(getLocale())} class="w-full"/>
+    <div class="grid grid-rows-[auto] md:grid-cols-2 gap-4 md:gap-8 h-full items-center">
         <Image src={Windesheim} class="rounded not-md:max-h-40 w-full h-full"/>
+        <Markdown source={study(getLocale())} class="w-full"/>
     </div>
-    <!-- Personal -->
-    <div class="grid grid-rows-[auto] md:grid-cols-2 gap-8 h-full">
-        <Image src={Homelab} class="rounded not-md:max-h-40 w-full h-full"/>
-        <Markdown source={data.personal(getLocale())} class="w-full"/>
+    <!-- Homelab -->
+    <div class="grid grid-rows-[auto] md:grid-cols-2 gap-4 md:gap-8 h-full">
+        <Image src={Homelab} class="rounded not-md:max-h-40 w-full h-full md:col-start-2"/>
+        <Markdown source={homelab(getLocale())} class="w-full md:row-start-1"/>
+    </div>
+    <!-- Modding -->
+    <div class="grid grid-rows-[auto] md:grid-cols-2 gap-4 md:gap-8 h-full items-center">
+        <Image src={Modding} class="rounded not-md:max-h-40 w-full h-full"/>
+        <Markdown source={modding(getLocale())} class="w-full"/>
     </div>
 </div>
