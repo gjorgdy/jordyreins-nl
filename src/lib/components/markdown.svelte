@@ -1,18 +1,7 @@
 <script lang="ts">
-    import SvelteMarkdown from '@humanspeak/svelte-markdown'
-    import {
-        createShikiHighlighter,
-        ShikiCode,
-        setShikiHighlighter
-    } from '@humanspeak/svelte-markdown/extensions/shiki'
-    import csharp from 'shiki/langs/csharp.mjs'
-    import ts from 'shiki/langs/typescript.mjs'
-    import githubDark from 'shiki/themes/github-dark.mjs'
+    import SvelteMarkdown from '@humanspeak/svelte-markdown';
     import Image from '$lib/components/image.svelte';
-
-    const highlighter = setShikiHighlighter(
-        createShikiHighlighter({ langs: [ts, csharp], themes: [githubDark] })
-    )
+    import { formatter } from '$lib/code_formatting';
 
     const { source, error, imageProvider, class: className }: { source: string; error?: string|undefined; imageProvider?: ((path: string|undefined) => string|undefined)|undefined; class?: string|undefined } = $props();
 
@@ -40,7 +29,7 @@
             {error}
         </p>
     {/if}
-    <SvelteMarkdown {source} renderers={{ code: ShikiCode }}>
+    <SvelteMarkdown {source} renderers={{ code: formatter }}>
         {#snippet blockquote({ children })}
             <span class="border-l-2 rounded-r-xs border-black/40 bg-black/5 dark:border-white/40 dark:bg-white/5 px-2 flex flex-col gap-2 [&>p]:m-0 -mt-4">
                 {@render children?.()}
