@@ -125,11 +125,11 @@
         </div>
     </div>
     <!-- Content -->
-    <div class="h-fit">
+    <!-- <div class="h-fit">
         <CategoryTitle text="Media Projects"/>
         <div id="projects" class="w-full h-full grid grid-cols-2 lg:grid-cols-4 gap-4">
             <Tile title="Shortform edits" thumbnail=""/>
             <Tile title="Graphic Design" thumbnail=""/>
         </div>
-    </div>
+    </div> -->
 </div>
