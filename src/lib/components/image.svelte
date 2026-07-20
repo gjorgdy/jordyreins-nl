@@ -18,11 +18,11 @@
     }
 </script>
 
-<span class="not-prose grid overflow-hidden {wClass ?? className}">
+<span class="not-prose grid overflow-hidden {wClass}">
     {#await loadImage()}
         <span out:fade={{duration: 500, easing: cubicOut}} class="{className} bg-black/5 dark:bg-white/5 col-start-1 row-start-1 animate-pulse"></span>
     {:then src} {#if src}
-        <img {loading} in:fade={{duration: 500}} {src} alt="Banner" class="{className} bg-black/5 dark:bg-white/5 col-start-1 row-start-1 object-cover" />
+        <img {loading} in:fade={{duration: 500}} {src} alt="Banner" class="{className} col-start-1 row-start-1" />
     {:else}
         <span in:fade={{duration: 500, easing: cubicOut}} class="{className} bg-black/5 dark:bg-white/5 col-start-1 row-start-1 flex items-center justify-center text-black/25 dark:text-white/15 font-code">
             {m.image_not_found()}

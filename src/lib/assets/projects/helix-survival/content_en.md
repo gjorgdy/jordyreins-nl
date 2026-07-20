@@ -1,4 +1,3 @@
-## Helix Survival Minecraft Server
 Helix Survival is my oldest and biggest project.
 It started as a simple server to play on with friends around 2019.
 Throughout the years, the server has grown alot, both in playerbase and in complexity.

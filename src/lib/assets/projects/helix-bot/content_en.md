@@ -1,4 +1,3 @@
-## Helix Bot
 For communication regarding my Minecraft server we make use of Discord, a chat platform originally made for gamers.
 Using Discords API you are able to create a bot that can interact with the platform.
 In the case of Helix, the bot is used to automate various tasks on the server.

@@ -7,10 +7,13 @@
 	"only_in": "This page is only available in",
 	"copy_toast": "Copied website link",
 	"image_not_found": "Image not found",
+	"source_code": "Source Code",
+	"website": "Website",
 
 	"quote": "too many hobbies, too little time",
 
 	"personal": "Personal",
+	"projects": "Projects",
 	"software_projects": "Software Projects",
 
 	"about_me": "About me",

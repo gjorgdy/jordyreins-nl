@@ -1,12 +1,9 @@
-## Symphonic SMP Website
 Symphonic SMP is a Minecraft server for content creators, specifically Twitch Streamers and YouTube creators.
 It has a unique twist where every member is assigned a music disc from the game, which plays a role in the story they tell through their content.
 
 I got into contact with some of the members after one of them contacted me regarding a Minecraft mod I made, [Sculk Radio](https://modrinth.com/mod/sculk-radio), that he wanted to use on the server.
 
 A short time after this, I had some free time from school, I wanted to experiment with the [Svelte](https://svelte.dev/) framework as I did not have alot of experience with web frameworks at all before. From there this project took off and very quickly surpassed its initial scope.
-
-> [Symphonic SMP Website](https://symphonicsmp.net/)
 
 ### Use Case
 The primary use case of the website is to be a place to easily find all content created by the server members on both Twitch and YouTube. 

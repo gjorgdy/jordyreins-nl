@@ -3,7 +3,7 @@
     import Image from '$lib/components/image.svelte';
     import { formatter } from '$lib/code_formatting';
 
-    const { source, error, imageProvider, class: className }: { source: string; error?: string|undefined; imageProvider?: ((path: string|undefined) => string|undefined)|undefined; class?: string|undefined } = $props();
+    const { source, imageProvider, class: className }: { source: string; imageProvider?: ((path: string|undefined) => string|undefined)|undefined; class?: string|undefined } = $props();
 
     function getModifiers(title: string|undefined): string {
         let classString = '';
@@ -24,11 +24,6 @@
 </script>
 
 <article class="prose dark:prose-invert {className}">
-    {#if error}
-        <p class="bg-red-600/40 border-2 border-red-600/80 text-white rounded w-fit px-2 -mb-6">
-            {error}
-        </p>
-    {/if}
     <SvelteMarkdown {source} renderers={{ code: formatter }}>
         {#snippet blockquote({ children })}
             <span class="border-l-2 rounded-r-xs border-black/40 bg-black/5 dark:border-white/40 dark:bg-white/5 px-2 flex flex-col gap-2 [&>p]:m-0 -mt-4">

@@ -35,7 +35,7 @@
     <title>Jordy Reins</title>
 </svelte:head>
 
-<div id="bg" class="{dark ? 'dark' : ''} bg-white dark:bg-black dark:text-white min-h-dvh min-w-dvw relative flex flex-col items-center">
+<div id="bg" class="{dark ? 'dark' : ''} bg-white dark:bg-black dark:text-[#d0d0d0] min-h-dvh min-w-dvw relative flex flex-col items-center">
     <div
         class="z-10 sticky top-0 bg-white dark:bg-black w-full flex justify-center border-b"
         bind:clientHeight={$headerHeight}

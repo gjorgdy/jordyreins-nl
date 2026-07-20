@@ -8,12 +8,22 @@
     // assets
     import initials_m from '$lib/assets/initials_modern.png';
     import initials_mw from '$lib/assets/initials_modern_white.png';
+
     import aboutMeThumbnail from '$lib/assets/index/jordy_2007.jpg';
     import experiencesThumbnail from '$lib/assets/index/experiences.jpg';
-    import helixThumbnail from '$lib/assets/projects/helix-survival/thumbnail.png';
-    import symphonicThumbnail from '$lib/assets/projects/symphonic-smp/thumbnail.png';
-    import helixBotThumbnail from '$lib/assets/projects/helix-bot/thumbnail.png';
     import contactThumbnail from '$lib/assets/index/contact.jpg';
+
+    import helixThumbnail from '$lib/assets/projects/helix-survival/thumbnail.webp';
+    import helixLogo from '$lib/assets/projects/helix-survival/logo.webp';
+
+    import symphonicThumbnail from '$lib/assets/projects/symphonic-smp/thumbnail.webp';
+    import symphonicLogo from '$lib/assets/projects/symphonic-smp/logo.webp';
+
+    import helixBotThumbnail from '$lib/assets/projects/helix-bot/thumbnail.webp';
+    import helixBotLogo from '$lib/assets/projects/helix-bot/logo.webp';
+
+    import FlashCartsThumbnail from '$lib/assets/projects/flash-carts/thumbnail.webp';
+    import FlashCartsLogo from '$lib/assets/projects/flash-carts/logo.webp';
     // data
     import { showHeaderTitle, headerHeight } from '$lib/store';
     // components
@@ -73,7 +83,7 @@
     <!-- Title -->
     <div
         in:fade
-        class="grow flex flex-col items-center justify-center"
+        class="{$showHeaderTitle ? '-z-10' : 'z-0'} grow flex flex-col items-center justify-center"
         bind:clientHeight={titleWrapperHeight}
         style:transform={`translateY(${Math.pow(scrollY, power) + (Math.max(0, scrollY / titleWrapperHeight) * $headerHeight)}px)`}
         style:opacity={`${scrollY == 0 ? 1 : $showHeaderTitle ? 0 : Math.min(1.5 - scrollY / titleWrapperHeight, 1)}`}
@@ -93,7 +103,7 @@
         </div>
     </div>
     <!-- Personal -->
-    <div class="shrink">
+    <div class="z-10 shrink">
         <CategoryTitle text={m.personal()}/>
         <div id="me" class="w-full h-min grid grid-cols-2 lg:grid-cols-4 gap-4">
             <Tile class="col-span-2" title={m.about_me()} thumbnail={aboutMeThumbnail} href={resolve("/about")}/>
@@ -103,24 +113,24 @@
     </div>
 </div>
 <!-- Body -->
-<div class="flex flex-col gap-4 md:gap-8 pb-16">
+<div class="z-20 flex flex-col gap-4 pb-16">
     <!-- Software Projects -->
     <div>
         <CategoryTitle text={m.software_projects()}/>
         <div id="projects" class="w-full h-full grid grid-cols-2 lg:grid-cols-4 gap-4">
-            <Tile title="Helix Survival Minecraft Server" thumbnail={helixThumbnail} href={resolve("/projects/helix-survival")}/>
-            <Tile title="Helix (Discord) Bot" thumbnail={helixBotThumbnail} href={resolve("/projects/helix-bot")}/>
-            <Tile title="Symphonic SMP Creators Website" thumbnail={symphonicThumbnail} href={resolve("/projects/symphonic-smp")}/>
+            <Tile title="Helix Survival Minecraft Server" thumbnail={helixThumbnail} logo={helixLogo} href={resolve("/projects/helix-survival")}/>
+            <Tile title="Helix (Discord) Bot" thumbnail={helixBotThumbnail} logo={helixBotLogo} href={resolve("/projects/helix-bot")}/>
+            <Tile title="Symphonic SMP Creators Website" thumbnail={symphonicThumbnail} logo={symphonicLogo} href={resolve("/projects/symphonic-smp")}/>
+            <Tile title="Flash Carts" thumbnail={FlashCartsThumbnail} logo={FlashCartsLogo} href={resolve("/projects/flash-carts")}/>
+            <Tile title="Helix Survival Website" thumbnail=""/>
         </div>
     </div>
-    <!-- Tools -->
-    <!-- <div>
-        <CategoryTitle text="Tools"/>
+    <!-- Content -->
+    <div class="h-fit">
+        <CategoryTitle text="Media Projects"/>
         <div id="projects" class="w-full h-full grid grid-cols-2 lg:grid-cols-4 gap-4">
-            <Tile title="Tool A" thumbnail="" href={resolve("/projects/tool-a")}/>
-            <Tile title="Tool B" thumbnail="" href={resolve("/projects/tool-b")}/>
-            <Tile title="Tool C" thumbnail="" href={resolve("/projects/tool-c")}/>
-            <Tile title="Tool D" thumbnail="" href={resolve("/projects/tool-d")}/>
+            <Tile title="Graphic Desisgn" thumbnail=""/>
+            <Tile title="Shortform edits" thumbnail=""/>
         </div>
-    </div> -->
+    </div>
 </div>
