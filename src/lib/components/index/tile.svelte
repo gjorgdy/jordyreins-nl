@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { m } from '$lib/paraglide/messages.js';
   import Image from '$lib/components/image.svelte';
   import type { ResolvedPathname } from '$app/types';
 
@@ -14,7 +15,7 @@
         </div>
         {/if}
     {:else}
-    <div class="z-10 rounded-xs w-full h-30 md:h-60 object-cover transition-all bg-black/5 dark:bg-white/5 flex items-center justify-center text-black/25 dark:text-white/15 font-code {imgClass}">Coming Soon</div>
+    <div class="z-10 rounded-xs w-full h-30 md:h-60 object-cover transition-all bg-black/5 dark:bg-white/5 flex items-center justify-center text-black/25 dark:text-white/15 font-code {imgClass}">{m.coming_soon()}</div>
     {/if}
     <span class="z-10 flex flex-row justify-between items-end">
         <span class="not-md:text-sm text-black/80 dark:text-white/80">{title}</span>
