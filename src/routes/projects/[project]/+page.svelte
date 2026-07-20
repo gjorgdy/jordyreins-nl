@@ -39,17 +39,21 @@
                 </a>
             {/if}
         </span>
-        {#if !content?.isCurrentLocale}
-            <p class="bg-red-600/40 border-2 border-red-600/80 text-white rounded w-fit px-2 mb-6">
-                {m.only_in() + " " + (getLocale() === 'en' ? m.lang_nl() : m.lang_en())}
-            </p>
-        {/if}
         {#if content}
+            {#if !content.isCurrentLocale}
+                <p class="bg-red-600/40 border-2 border-red-600/80 text-white rounded w-fit px-2 mb-6">
+                    {m.only_in() + " " + (getLocale() === 'en' ? m.lang_nl() : m.lang_en())}
+                </p>
+            {/if}
             <Markdown
                 class="min-w-full"
                 source={content.text}
                 imageProvider={getImage}
             />
+        {:else}
+            <p class="bg-red-600/40 border-2 border-red-600/80 text-white rounded w-fit px-2 mb-6">
+                {m.project_not_loaded()}
+            </p>
         {/if}
     </div>
 </div>
