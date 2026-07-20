@@ -2,26 +2,36 @@
   import type { Pathname } from '$app/types';
   import { resolve } from '$app/paths';
   import { page } from '$app/state';
+  import { m } from '$lib/paraglide/messages.js';
   import { locales, localizeHref } from '$lib/paraglide/runtime';
   import './layout.css';
   import initialsModern from '$lib/assets/initials_modern.png';
   import initialsModernWhite from '$lib/assets/initials_modern_white.png';
   import { showHeaderTitle, headerHeight } from '$lib/store';
+  import { browser } from '$app/environment';
   // components
   import Language from '$lib/components/language.svelte';
   import LastUpdated from '$lib/components/last_updated.svelte';
   import Title from '$lib/components/title.svelte';
   import { fade } from 'svelte/transition';
+  // icons
+  import Icon from "@iconify/svelte";
 
   let { children, data } = $props();
 
   let scrollY = $state(0);
   let border = $derived(Math.min(scrollY / 250, 0.2));
   let shadow = $derived(Math.min(scrollY / 250, 0.25));
+  let pageHeight = $state(0);
+  let footerHeight = $state(0);
+  let footerInView = $state(false);
 
   $effect(() => {
     if (!data.isHomePage) {
       showHeaderTitle.set(true);
+    }
+    if (browser) {
+      footerInView = scrollY > pageHeight - footerHeight - window.innerHeight;
     }
   });
 
@@ -35,7 +45,7 @@
     <title>Jordy Reins</title>
 </svelte:head>
 
-<div id="bg" class="{dark ? 'dark' : ''} bg-white dark:bg-black dark:text-[#d0d0d0] min-h-dvh min-w-dvw relative flex flex-col items-center">
+<div bind:clientHeight={pageHeight} id="bg" class="{dark ? 'dark' : ''} bg-white dark:bg-black dark:text-[#d0d0d0] min-h-dvh min-w-dvw relative flex flex-col items-center">
     <div
         class="z-10 sticky top-0 bg-white dark:bg-black w-full flex justify-center border-b"
         bind:clientHeight={$headerHeight}
@@ -54,6 +64,35 @@
     </div>
     <div class="z-0 grow w-300 max-w-[95dvw]">
         {@render children()}
+    </div>
+    <div bind:clientHeight={footerHeight} class="w-full flex items-center justify-center bg-white dark:bg-black border-t border-black/20 dark:border-white/20 p-2">
+        <div class="w-300 flex flex-col-reverse gap-2 md:grid md:grid-cols-3 items-center justify-center text-black/50 dark:text-white/50 text-sm">
+            <span>© 2026 Jordy Reins | All Rights Reserved</span>
+            <span class="flex flex-row gap-4 items-center justify-center">
+                {#if footerInView}
+                <a href="https://github.com/gjorgdy" class="group grid">
+                    <Icon class="group-hover:opacity-0 transition-opacity row-start-1 col-start-1" height="1lh" icon="line-md:github"/>
+                    <Icon class="group-hover:opacity-100 opacity-0 transition-opacity row-start-1 col-start-1" height="1lh" icon="line-md:github-twotone"/>
+                </a>
+                <a href="https://www.youtube.com/@yordeaux" class="group grid">
+                    <Icon class="group-hover:opacity-0 transition-opacity row-start-1 col-start-1" height="1lh" icon="line-md:youtube"/>
+                    <Icon class="group-hover:opacity-100 opacity-0 transition-opacity row-start-1 col-start-1" height="1lh" icon="line-md:youtube-twotone"/>
+                </a>
+                <a href="https://hexasis.eu/dc/keycap" class="group grid">
+                    <Icon class="group-hover:opacity-0 transition-opacity row-start-1 col-start-1" height="1lh" icon="line-md:discord"/>
+                    <Icon class="group-hover:opacity-100 opacity-0 transition-opacity row-start-1 col-start-1" height="1lh" icon="line-md:discord-twotone"/>
+                </a>
+                <a href="https://modrinth.com/user/Gjorgdy" class="group grid">
+                    <Icon class="group-hover:opacity-0 transition-opacity row-start-1 col-start-1" height="1lh" icon="line-md:download-outline"/>
+                    <Icon class="group-hover:opacity-100 opacity-0 transition-opacity row-start-1 col-start-1" height="1lh" icon="line-md:download-twotone"/>
+                </a>
+                {/if}
+            </span>
+            <span class="text-end not-md:hidden">
+                {m.made_with()}
+                <a href="https://svelte.dev/" class="underline hover:text-black/40 hover:dark:text-white/40 transition-colors">Svelte</a>
+            </span>
+        </div>
     </div>
 </div>
 

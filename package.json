@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@humanspeak/svelte-markdown": "^1.8.4",
+    "@iconify/svelte": "^5.2.2",
     "@lucide/svelte": "^1.25.0",
     "shadcdn": "^0.0.8",
     "shiki": "^4.3.1",
