@@ -52,7 +52,7 @@
         style:border-color={dark ? `rgb(255, 255, 255, ${border})` : `rgb(0, 0, 0, ${border})`}
         style:box-shadow={`0 2px 20px ${`rgb(0, 0, 0, ${shadow})`}`}
     >
-        <div class="w-300 max-w-[95dvw] h-12 md:h-20 px-2 grid grid-cols-[4fr_1fr] md:grid-cols-3 items-center">
+        <div class="w-300 max-w-[95dvw] h-12 md:h-20 px-2 grid grid-cols-[4fr_1fr] md:grid-cols-[1fr_auto_1fr] items-center">
             <LastUpdated class="font-code dark:text-white/40 not-md:hidden flex items-center justify-start h-full"/>
             <span class="flex md:justify-center">
                 {#if $showHeaderTitle}
@@ -65,11 +65,11 @@
     <div class="z-0 grow w-300 max-w-[95dvw]">
         {@render children()}
     </div>
-    <div bind:clientHeight={footerHeight} class="w-full flex items-center justify-center bg-white dark:bg-black border-t border-black/20 dark:border-white/20 p-2">
+    <div bind:clientHeight={footerHeight} class="w-full flex items-center justify-center bg-white dark:bg-black border-t border-black/20 dark:border-white/20 h-10">
         <div class="w-300 flex flex-col-reverse gap-2 md:grid md:grid-cols-3 items-center justify-center text-black/50 dark:text-white/50 text-sm">
-            <span>© 2026 Jordy Reins | All Rights Reserved</span>
+            {#if footerInView}
+            <span in:fade>© 2026 Jordy Reins | All Rights Reserved</span>
             <span class="flex flex-row gap-4 items-center justify-center">
-                {#if footerInView}
                 <a href="https://github.com/gjorgdy" class="group grid">
                     <Icon class="group-hover:opacity-0 transition-opacity row-start-1 col-start-1" height="1lh" icon="line-md:github"/>
                     <Icon class="group-hover:opacity-100 opacity-0 transition-opacity row-start-1 col-start-1" height="1lh" icon="line-md:github-twotone"/>
@@ -86,12 +86,12 @@
                     <Icon class="group-hover:opacity-0 transition-opacity row-start-1 col-start-1" height="1lh" icon="line-md:download-outline"/>
                     <Icon class="group-hover:opacity-100 opacity-0 transition-opacity row-start-1 col-start-1" height="1lh" icon="line-md:download-twotone"/>
                 </a>
-                {/if}
             </span>
-            <span class="text-end not-md:hidden">
+            <span in:fade class="text-end not-md:hidden">
                 {m.made_with()}
                 <a href="https://svelte.dev/" class="underline hover:text-black/40 hover:dark:text-white/40 transition-colors">Svelte</a>
             </span>
+            {/if}
         </div>
     </div>
 </div>
