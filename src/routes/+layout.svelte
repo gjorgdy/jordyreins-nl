@@ -45,7 +45,7 @@
     <title>Jordy Reins</title>
 </svelte:head>
 
-<div bind:clientHeight={pageHeight} id="bg" class="{dark ? 'dark' : ''} bg-white dark:bg-black dark:text-[#d0d0d0] min-h-dvh min-w-dvw relative flex flex-col items-center">
+<div bind:clientHeight={pageHeight} id="bg" class="{dark ? 'dark' : ''} bg-white dark:bg-black dark:text-[#d0d0d0] h-dvh w-dvw relative flex flex-col items-center">
     <div
         class="z-10 sticky top-0 bg-white dark:bg-black w-full flex justify-center border-b"
         bind:clientHeight={$headerHeight}
@@ -62,11 +62,11 @@
             <Language class="font-code dark:text-white/40 flex items-center justify-end h-full"/>
         </div>
     </div>
-    <div class="z-0 grow w-300 max-w-[95dvw]">
+    <div class="z-0 grow min-h-vh w-300 max-w-[95dvw]">
         {@render children()}
     </div>
-    <div bind:clientHeight={footerHeight} class="w-full flex items-center justify-center bg-white dark:bg-black border-t border-black/20 dark:border-white/20 h-10">
-        <div class="w-300 flex flex-col-reverse gap-2 md:grid md:grid-cols-3 items-center justify-center text-black/50 dark:text-white/50 text-sm">
+    <div bind:clientHeight={footerHeight} class="w-full flex items-center justify-center bg-white dark:bg-black border-t border-black/20 dark:border-white/20 h-16 md:h-10">
+        <div class="w-300 max-w-[95dvw] flex flex-col-reverse gap-2 md:grid md:grid-cols-3 items-center justify-center text-black/50 dark:text-white/50 text-sm">
             {#if footerInView}
             <span in:fade>© 2026 Jordy Reins | All Rights Reserved</span>
             <span class="flex flex-row gap-4 items-center justify-center">
