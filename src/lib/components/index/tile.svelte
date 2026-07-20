@@ -10,7 +10,7 @@
         <Image src={thumbnail} wClass="rounded-xs h-30 md:h-60 {logo ? 'opacity-80' : ''}" class="z-10 rounded-xs w-full h-30 md:h-60 object-cover transition-all {imgClass}"/>
         {#if logo}
         <div class="absolute w-full h-30 md:h-60 flex items-center justify-center">
-            <Image src={logo} wClass="max-w-[80%]" class="max-h-20 md:max-h-50 z-10 transition-all {imgClass}"/>
+            <Image src={logo} wClass="max-w-[80%]" class="max-h-15 md:max-h-30 z-10 transition-all {imgClass}"/>
         </div>
         {/if}
     {:else}

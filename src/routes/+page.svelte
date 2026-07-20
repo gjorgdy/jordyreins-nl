@@ -79,7 +79,7 @@
 {/if}
 
 <!-- Main Overview -->
-<div id="title" class="z-10 flex flex-col mb-6 pb-2 md:pb-8 md:m-0 h-[calc(100dvh-48px)] md:h-[calc(100dvh-80px)]">
+<div id="title" class="z-10 flex flex-col mb-6 pb-2 md:pb-8 md:m-0 h-[calc(100vh-48px)] md:h-[calc(100vh-80px)]">
     <!-- Title -->
     <div
         in:fade
@@ -113,7 +113,7 @@
     </div>
 </div>
 <!-- Body -->
-<div class="z-20 flex flex-col gap-4 pb-16">
+<div class="z-20 flex flex-col gap-8 pb-16">
     <!-- Software Projects -->
     <div>
         <CategoryTitle text={m.software_projects()}/>
@@ -122,15 +122,14 @@
             <Tile title="Helix (Discord) Bot" thumbnail={helixBotThumbnail} logo={helixBotLogo} href={resolve("/projects/helix-bot")}/>
             <Tile title="Symphonic SMP Creators Website" thumbnail={symphonicThumbnail} logo={symphonicLogo} href={resolve("/projects/symphonic-smp")}/>
             <Tile title="Flash Carts" thumbnail={FlashCartsThumbnail} logo={FlashCartsLogo} href={resolve("/projects/flash-carts")}/>
-            <Tile title="Helix Survival Website" thumbnail=""/>
         </div>
     </div>
     <!-- Content -->
     <div class="h-fit">
         <CategoryTitle text="Media Projects"/>
         <div id="projects" class="w-full h-full grid grid-cols-2 lg:grid-cols-4 gap-4">
-            <Tile title="Graphic Desisgn" thumbnail=""/>
             <Tile title="Shortform edits" thumbnail=""/>
+            <Tile title="Graphic Desisgn" thumbnail=""/>
         </div>
     </div>
 </div>
