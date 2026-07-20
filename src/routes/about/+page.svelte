@@ -58,7 +58,7 @@ Mijn grootste niet ICT gerelateerde interesse is video en film. Het maken, er ov
     <title>Jordy Reins / {m.about_me()}</title>
 </svelte:head>
 
-<div class="h-full w-full flex flex-col items-center md:justify-center">
+<div class="h-full flex flex-col items-center md:justify-center">
     <div class="w-240 max-w-[90dvw]">
         <div class="flex flex-col-reverse md:flex-row items-center gap-4 md:gap-8">
             <Markdown source={intro} class="grow"/>
