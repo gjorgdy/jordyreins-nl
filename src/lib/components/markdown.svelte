@@ -34,6 +34,7 @@
         {#snippet image({ href, text })}
             {#if imageProvider && !href?.includes("http")}
                 <Image wClass="rounded-sm" class="rounded-sm not-prose max-w-full w-full object-cover {getModifiers(text)}" src={imageProvider(href)}/>
+                <span class="text-sm md:text-xs italic opacity/50">{text?.split('|')[0]}</span>
             {:else}
                 <img loading="lazy" src={href} alt={text} class="rounded-sm not-prose max-w-full w-full object-cover {getModifiers(text)}" />
             {/if}
