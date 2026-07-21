@@ -7,12 +7,14 @@
     import Image from '$lib/components/image.svelte';
     // images
     import Seven from '$lib/assets/about/2007.webp';
+    import Eighteen from '$lib/assets/about/2018.webp';
     import TwentyTwo from '$lib/assets/about/2022.webp';
     import TwentyFive from '$lib/assets/about/2025.webp';
 
     let index = $state(2);
     let interacted = $state(false);
-    const images = [Seven, TwentyTwo, TwentyFive];
+    const images = [Seven, Eighteen, TwentyTwo, TwentyFive];
+    const years = [2007, 2018, 2022, 2025];
 
     function loop() {
       setTimeout(() => {
@@ -63,11 +65,17 @@ Mijn grootste niet ICT gerelateerde interesse is video en film. Het maken, er ov
         <div class="flex flex-col-reverse md:flex-row items-center gap-4 md:gap-8">
             <Markdown source={intro} class="grow"/>
             <div class="bg-black/5 dark:bg-white/5 rounded-xl">
-                <Image src={images[index]} wClass="w-[90dvw] md:w-100" class="rounded-xl aspect-square object-cover object-top"/>
-                <span class="text-sm p-2 divide-x divide-white/20 w-full grid grid-cols-3 items-center">
-                    <button class="cursor-pointer hover:opacity-80 {index === 0 ? 'font-bold' : ''}" onclick={() => select(0)}>2007</button>
-                    <button class="cursor-pointer hover:opacity-80 {index === 1 ? 'font-bold' : ''}" onclick={() => select(1)}>2022</button>
-                    <button class="cursor-pointer hover:opacity-80 {index === 2 ? 'font-bold' : ''}" onclick={() => select(2)}>2025</button>
+                <div class="grid">
+                    {#each images as item, i (item)}
+                        {#if index === i}
+                            <Image duration={500} src={item} wClass="w-[90dvw] md:w-100 col-start-1 row-start-1 rounded-t-xl" class="aspect-square object-cover object-top"/>
+                        {/if}
+                    {/each}
+                </div>
+                <span class="text-sm p-2 divide-x divide-white/20 w-full grid grid-cols-4 items-center">
+                    {#each years as year, i (year)}
+                        <button class="cursor-pointer hover:opacity-80 {index === i ? 'font-bold' : ''}" onclick={() => select(i)}>{year}</button>
+                    {/each}
                 </span>
             </div>
         </div>

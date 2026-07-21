@@ -4,7 +4,7 @@
     import { fade } from 'svelte/transition';
     import { cubicOut } from 'svelte/easing';
 
-    const { wClass, class: className, src, loading, instant }: { wClass?: string|undefined; class?: string|undefined; src: string|undefined; loading?: "eager"|"lazy"|null|undefined, instant?: boolean } = $props();
+    const { wClass, class: className, src, loading, instant, duration }: { wClass?: string|undefined; class?: string|undefined; src: string|undefined; loading?: "eager"|"lazy"|null|undefined, instant?: boolean, duration?: number} = $props();
 
     async function loadImage(): Promise<string|undefined> {
         if (!src) return undefined;
@@ -18,7 +18,7 @@
     }
 </script>
 
-<span class="not-prose grid overflow-hidden {wClass}">
+<span transition:fade={{duration: duration ?? 0}} class="not-prose grid overflow-hidden {wClass}">
     {#await loadImage()}
         <span out:fade={{duration: 500, easing: cubicOut}} class="{className} bg-black/5 dark:bg-white/5 col-start-1 row-start-1 animate-pulse"></span>
     {:then src} {#if src}
