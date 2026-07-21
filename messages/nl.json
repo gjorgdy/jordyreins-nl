@@ -21,5 +21,11 @@
 
 	"about_me": "Over mij",
 	"experience_and_skills": "Ervaringen en vaardigheden",
-	"contact_me": "Neem contact op"
+	"contact_me": "Neem contact op",
+
+	"professional": "Voor professionele verzoeken, neem contact op via mail",
+	"mods": "Als je wil praten over mijn mods, kan je mijn Discord server bezoeken",
+	"minecraft": "Als je met mij Minecraft wilt spelen, kan je de Helix Discord server bezoeken",
+	"git": "Als je meer van mijn projecten wilt zien, kan je mijn GitHub of Codeberg bezoeken",
+	"media": "Als je mijn video content wilt bekijken, kan je mijn TikTok of YouTube bezoeken"
 }

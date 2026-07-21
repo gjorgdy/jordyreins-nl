@@ -21,5 +21,11 @@
 
 	"about_me": "About me",
 	"experience_and_skills": "Experience and Skills",
-	"contact_me": "Contact me"
+	"contact_me": "Contact me",
+
+	"professional": "For professional inquiries, you can contact me through mail",
+	"mods": "If you want to discuss my mods, you can join my Discord server",
+	"minecraft": "If you want to play Minecraft with me, join the Helix Discord server",
+	"git": "If you want to see more of my work, you can visit my GitHub or Codeberg",
+	"media": "If you want to see video content I make, you can visit my Tiktok or YouTube"
 }

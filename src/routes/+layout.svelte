@@ -31,7 +31,7 @@
       showHeaderTitle.set(true);
     }
     if (browser) {
-      footerInView = scrollY > pageHeight - footerHeight - window.innerHeight;
+      footerInView = pageHeight == window.innerHeight || scrollY > pageHeight - footerHeight - window.innerHeight;
     }
   });
 
