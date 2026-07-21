@@ -1,7 +1,5 @@
 <script lang="ts">
 	import { m } from '$lib/paraglide/messages';
-	import { professional } from '$lib/paraglide/messages/en';
-    import { getLocale } from '$lib/paraglide/runtime';
     import Icon from "@iconify/svelte";
 </script>
 
