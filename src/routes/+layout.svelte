@@ -43,6 +43,13 @@
 <svelte:head>
     <link rel="icon" href={dark ? initialsModernWhite : initialsModern} />
     <title>Jordy Reins</title>
+    <meta name="darkreader-lock" content="true" />
+	<meta property="og:title" content="Jordy Reins" />
+	<meta name="keywords" content="Minecraft, Survival, development, web, portfolio, gaming, content" />
+	<meta name="description" content="The portfolio of Jordy Reins">
+	<meta property="description" content="The portfolio of Jordy Reins" />
+	<meta property="og:description" content="The portfolio of Jordy Reins" />
+	<meta property="og:image" content={initialsModern} />
 </svelte:head>
 
 <div bind:clientHeight={pageHeight} class="{dark ? 'dark' : ''} bg-white dark:bg-black dark:text-[#d0d0d0] min-h-full w-full relative grid grid-rows-[auto_1fr_auto]">
