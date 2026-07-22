@@ -13,7 +13,7 @@ The biggest hurdle was the rate limiting imposed by Discord. They make use of a 
 
 To handle this I used a registry to keep track of the rate limit buckets. With an 'intelligent' wait function that waits for the rate limit to reset if necessary.
 
-```csharp
+<!--```csharp
 namespace Core.Interfaces;
 
 public interface IRateLimitRegistry
@@ -23,7 +23,7 @@ public interface IRateLimitRegistry
     public void UpdateRateLimitBucket(string resourceRoute, string bucketId, int limit, int remaining,
         DateTime resetTime);
 }
-```
+```-->
 
 #### Disconnecting
 Another issue I encountered was getting disconnected from the gateway, the websocket used to listen for events. 
