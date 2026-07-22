@@ -21,6 +21,7 @@
 
 <svelte:head>
     <title>Jordy Reins / {m.projects()} / {data.project.title}</title>
+    <meta property="og:title" content="Jordy Reins / {m.projects()} / {data.project.title}" />
 </svelte:head>
 
 <div class="h-full flex flex-col items-center gap-2 md:gap-6 pb-12">

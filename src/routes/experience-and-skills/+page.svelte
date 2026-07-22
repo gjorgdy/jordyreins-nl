@@ -15,6 +15,7 @@
 
 <svelte:head>
     <title>Jordy Reins / {m.experience_and_skills()}</title>
+    <meta property="og:title" content="Jordy Reins / {m.experience_and_skills()}" />
 </svelte:head>
 
 <div class="flex flex-col gap-8 mb-12">

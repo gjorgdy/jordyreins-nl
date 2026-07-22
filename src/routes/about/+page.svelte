@@ -58,6 +58,7 @@ Mijn grootste niet ICT gerelateerde interesse is video en film. Het maken, er ov
 
 <svelte:head>
     <title>Jordy Reins / {m.about_me()}</title>
+    <meta property="og:title" content="Jordy Reins / {m.about_me()}" />
 </svelte:head>
 
 <div class="h-full flex flex-col items-center md:justify-center">

@@ -5,6 +5,7 @@
 
 <svelte:head>
     <title>Jordy Reins / {m.contact_me()}</title>
+    <meta property="og:title" content="Jordy Reins / {m.contact_me()}" />
 </svelte:head>
 
 <div class="h-full flex flex-col items-center justify-center">
