@@ -1,6 +1,7 @@
 <script lang="ts">
     import Markdown from '$lib/components/markdown.svelte';
     import { m } from '$lib/paraglide/messages.js';
+	import { toTitleCase } from '$lib/utils';
     import type { PageProps } from './$types';
 
     let { params, data }: PageProps = $props();
@@ -9,8 +10,8 @@
 </script>
 
 <svelte:head>
-    <title>Jordy Reins / {m.resources()} / {params.resource.replaceAll('-', ' ')}</title>
-    <meta property="og:title" content="Jordy Reins / {m.resources()} / {params.resource.replaceAll('-', ' ')}" />
+    <title>Jordy Reins / {m.resources()} / {toTitleCase(params.resource)}</title>
+    <meta property="og:title" content="Jordy Reins / {m.resources()} / {toTitleCase(params.resource)}" />
 </svelte:head>
 
 <div class="h-full flex flex-col items-center gap-2 md:gap-6 pb-12">

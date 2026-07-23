@@ -2,6 +2,7 @@
     import SvelteMarkdown from '@humanspeak/svelte-markdown';
     import Image from '$lib/components/image.svelte';
     import { formatter } from '$lib/code_formatting';
+    import Icon from "@iconify/svelte";
 
     const { source, imageProvider, class: className }: { source: string; imageProvider?: ((path: string|undefined) => string|undefined)|undefined; class?: string|undefined } = $props();
 
@@ -29,6 +30,18 @@
             <span class="border-l-2 rounded-r-xs border-black/40 bg-black/5 dark:border-white/40 dark:bg-white/5 px-2 flex flex-col gap-2 [&>p]:m-0 mt-2">
                 {@render children?.()}
             </span>
+        {/snippet}
+
+        {#snippet link({href, text})}
+            {#if text?.includes('|')}
+                {const [icon, _text] = text.split('|')}
+                <a href={href} class="flex flex-row gap-2 items-center hover:opacity-60 transition-opacity">
+                    <Icon icon={icon ?? ""}/>
+                    <span>{_text}</span>
+                </a>
+            {:else}
+                <a class="hover:opacity-60 transition-opacity" href={href}>{text}</a>
+            {/if}
         {/snippet}
 
         {#snippet image({ href, text })}

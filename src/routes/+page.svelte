@@ -25,7 +25,8 @@
     import FlashCartsThumbnail from '$lib/assets/projects/flash-carts/thumbnail.webp';
     import FlashCartsLogo from '$lib/assets/projects/flash-carts/logo.webp';
 
-    import GitStandards from '$lib/assets/index/git_standards.png';
+    import GitStandardsThumbnail from '$lib/assets/index/git_standards.png';
+    import WatchlistThumbnail from '$lib/assets/index/watchlist.jpg';
     // data
     import { showHeaderTitle, headerHeight } from '$lib/store';
     // components
@@ -130,15 +131,8 @@
     <div>
         <CategoryTitle text={m.resources()}/>
         <div id="projects" class="w-full h-full grid grid-cols-2 lg:grid-cols-4 gap-4">
-            <Tile title="Jordy's Git Standards" thumbnail={GitStandards} href={resolve("/resources/git-standards")}/>
+            <Tile title="{m.my()} Git Standards" thumbnail={GitStandardsThumbnail} href={resolve("/resources/git-standards")}/>
+            <Tile title="{m.my()} 2025 Watchlist" thumbnail={WatchlistThumbnail} href={resolve("/resources/2025-watchlist")}/>
         </div>
     </div>
-    <!-- Content -->
-    <!-- <div class="h-fit">
-        <CategoryTitle text="Media Projects"/>
-        <div id="projects" class="w-full h-full grid grid-cols-2 lg:grid-cols-4 gap-4">
-            <Tile title="Shortform edits" thumbnail=""/>
-            <Tile title="Graphic Design" thumbnail=""/>
-        </div>
-    </div> -->
 </div>
