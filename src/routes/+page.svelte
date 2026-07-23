@@ -24,6 +24,8 @@
 
     import FlashCartsThumbnail from '$lib/assets/projects/flash-carts/thumbnail.webp';
     import FlashCartsLogo from '$lib/assets/projects/flash-carts/logo.webp';
+
+    import GitStandards from '$lib/assets/index/git_standards.png';
     // data
     import { showHeaderTitle, headerHeight } from '$lib/store';
     // components
@@ -122,6 +124,13 @@
             <Tile title="Helix (Discord) Bot" thumbnail={helixBotThumbnail} logo={helixBotLogo} href={resolve("/projects/helix-bot")}/>
             <Tile title="Symphonic SMP Creators Website" thumbnail={symphonicThumbnail} logo={symphonicLogo} href={resolve("/projects/symphonic-smp")}/>
             <Tile title="Flash Carts" thumbnail={FlashCartsThumbnail} logo={FlashCartsLogo} href={resolve("/projects/flash-carts")}/>
+        </div>
+    </div>
+    <!-- Resources -->
+    <div>
+        <CategoryTitle text={m.resources()}/>
+        <div id="projects" class="w-full h-full grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <Tile title="Jordy's Git Standards" thumbnail={GitStandards} href={resolve("/resources/git-standards")}/>
         </div>
     </div>
     <!-- Content -->

@@ -26,7 +26,7 @@
 <article class="prose dark:prose-invert {className}">
     <SvelteMarkdown {source} renderers={{ code: formatter }}>
         {#snippet blockquote({ children })}
-            <span class="border-l-2 rounded-r-xs border-black/40 bg-black/5 dark:border-white/40 dark:bg-white/5 px-2 flex flex-col gap-2 [&>p]:m-0 -mt-4">
+            <span class="border-l-2 rounded-r-xs border-black/40 bg-black/5 dark:border-white/40 dark:bg-white/5 px-2 flex flex-col gap-2 [&>p]:m-0 mt-2">
                 {@render children?.()}
             </span>
         {/snippet}
