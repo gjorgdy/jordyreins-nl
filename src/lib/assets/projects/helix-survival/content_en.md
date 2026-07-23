@@ -15,7 +15,7 @@ Helix REST was made by a server member to be used as a library for the shops to 
 Helix uses the mod/plugin called [Pl3xMap](https://modrinth.com/plugin/pl3xmap), which adds a webmap, akin to something like Google Maps to a Minecraft server. Pl3xMarkers is a custom addon for this which adds a ton of markers to this map including player base areas, shops, portals and more.
 > [Helix Survivals' Webmap](https://map.hexasis.eu/?world=minecraft-overworld&renderer=vintage_story&zoom=1&x=-457&z=144)
 
-![[pl3xMarkers]](pl3xmarkers.png)
+![Pl3xMarkers on the Helix Survival webmap](pl3xmarkers.png)
 
 #### And quite a bit more
 All features of and other information about the server can be found on the [official website](https://www.hexasis.eu/helix).

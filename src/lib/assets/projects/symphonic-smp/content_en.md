@@ -9,14 +9,14 @@ A short time after this, I had some free time from school, I wanted to experimen
 The primary use case of the website is to be a place to easily find all content created by the server members on both Twitch and YouTube. 
 By default, the website only shows content related to the server itself, but using the filters, users can also view unrelated content created by the members.
 
-![[Content Panel|top|medium]](content.png)
+![Content Panel|top|medium](content.png)
 
 ### Inspiration
 The general layout and functionality of the website were heavily inspired by the [HermitCraft website](https://hermitcraft.com/), which is another Minecraft content creator server.
 
 A repeated motive across the website are music discs, which are important to the server as described in the introduction. On the main page, all music discs are displayed in the header. Where on a member's profile page, only their assigned music disc is displayed.
 
-![[Website Header]](header.png)
+![Website Header](header.png)
 
 ### Technical Details
 An on-demand time-out caching system is used to cache the content fetched from the Twitch and YouTube APIs. When a user enters the website, the back-end checks the age of the cached content and only refreshes it if it is older than a certain threshold.

@@ -44,7 +44,7 @@ Only players on the whitelist are allowed to join the server.
 For players to get added, they must first submit a request using the bot, making use of Discords form input.\
 This request gets then send to a private channel with existing members where they can vote on whether to approve or deny the request.
 
-![[Form|center|large]](form.png)
+![Whitelist request form|center|large](form.png)
 
 #### *Gallery Channels*
 When a channel gets marked as a gallery channel, the bot will filter every message and only allow media (images, videos, etc.) to be posted.
@@ -52,10 +52,10 @@ Every message sent will also get a thumbs up, thumbs down and chat bubble emoji 
 
 Clicking on the chat bubble emoji will remove it and create a 'thread' on this message, allowing users to reply and discuss the content.
 
-![[Gallery Channel|small|left]](gallery.png)
+![A picture sent in a Gallery Channel|small|left](gallery.png)
 
 #### *On-demand Voice Channels*
 As the amount of voice channels needed is never the same, having a whole list of voice channels would be impractical.
 Instead, the bot will automatically create a voice channel when a user joins the `join to create` channel and delete it when they leave.
 
-![[Voice chat|medium|left|top]](voicechat.png)
+![A dynamically created Voice chat|medium|left|top](voicechat.png)
